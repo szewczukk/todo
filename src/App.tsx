@@ -1,25 +1,49 @@
+import {
+	createStyles,
+	CssBaseline,
+	makeStyles,
+	Theme,
+	Toolbar,
+} from '@material-ui/core';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AppBar from './components/AppBar';
+import Drawer from './components/Drawer';
+import Head from './components/Head';
+import WelcomeScreen from './pages/Welcome';
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		root: { display: 'flex' },
+		content: {
+			flexGrow: 1,
+			padding: theme.spacing(3),
+		},
+	}),
+);
 
 function App() {
+	const classes = useStyles();
+
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<>
+			<CssBaseline />
+			<AppBar />
+			<Head />
+			<BrowserRouter>
+				<div className={classes.root}>
+					<Drawer />
+					<main className={classes.content}>
+						<Toolbar />
+						<Switch>
+							<Route path="/" exact>
+								<WelcomeScreen />
+							</Route>
+						</Switch>
+					</main>
+				</div>
+			</BrowserRouter>
+		</>
 	);
 }
 
