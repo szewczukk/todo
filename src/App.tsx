@@ -1,6 +1,13 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import {
+	createStyles,
+	CssBaseline,
+	makeStyles,
+	Theme,
+	Toolbar,
+} from '@material-ui/core';
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import Head from './components/Head';
 import WelcomeScreen from './pages/Welcome';
@@ -20,11 +27,14 @@ function App() {
 
 	return (
 		<>
+			<CssBaseline />
+			<AppBar />
 			<Head />
 			<BrowserRouter>
 				<div className={classes.root}>
 					<Drawer />
 					<main className={classes.content}>
+						<Toolbar />
 						<Switch>
 							<Route path="/" exact>
 								<WelcomeScreen />
