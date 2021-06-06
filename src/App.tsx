@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import Head from './components/Head';
+import TasksList from './pages/TasksList';
 import WelcomeScreen from './pages/Welcome';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -38,6 +39,9 @@ function App() {
 						<Switch>
 							<Route path="/" exact>
 								<WelcomeScreen />
+							</Route>
+							<Route path="/list">
+								<TasksList />
 							</Route>
 						</Switch>
 					</main>

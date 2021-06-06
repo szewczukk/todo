@@ -1,6 +1,7 @@
 import React from 'react';
 import {
 	createStyles,
+	Divider,
 	Drawer as MaterialDrawer,
 	List,
 	ListItem,
@@ -11,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
+import { FormatListBulleted } from '@material-ui/icons';
 
 const useStyles = makeStyles(() =>
 	createStyles({
@@ -41,6 +43,15 @@ const Drawer = () => {
 								<HomeIcon />
 							</ListItemIcon>
 							<ListItemText>Welcome</ListItemText>
+						</ListItem>
+					</Link>
+					<Divider />
+					<Link to="/list" className={classes.link} data-testid="taskslist">
+						<ListItem button>
+							<ListItemIcon>
+								<FormatListBulleted />
+							</ListItemIcon>
+							<ListItemText>List of tasks</ListItemText>
 						</ListItem>
 					</Link>
 				</List>
