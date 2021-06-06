@@ -1,10 +1,10 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
 
-const TasksList = () => (
+const WelcomePage = () => (
 	<Typography variant="h5" component="h1" data-testid="heading">
-		task list
+		Choose a page from the navigation on left
 	</Typography>
 );
 
-export default TasksList;
+export default WelcomePage;
