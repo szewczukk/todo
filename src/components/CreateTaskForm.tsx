@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import { useAppDispatch } from '../store';
 import { actions as taskActions } from '../store/taskSlice';
+import { v4 as uuid } from 'uuid';
 
 const CreateTaskForm = () => {
 	const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ const CreateTaskForm = () => {
 		},
 		onSubmit: (values, { resetForm }) => {
 			resetForm();
-			dispatch(taskActions.createTask({ ...values, done: false }));
+			dispatch(taskActions.createTask({ ...values, done: false, id: uuid() }));
 		},
 	});
 

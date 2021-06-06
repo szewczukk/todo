@@ -30,7 +30,7 @@ const TaskTable = () => {
 				</TableHead>
 				<TableBody>
 					{tasks.map((task, idx) => (
-						<TableRow key={idx}>
+						<TableRow key={task.id}>
 							<TableCell>{idx + 1}</TableCell>
 							<TableCell>{task.description}</TableCell>
 							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
