@@ -16,4 +16,9 @@ describe('Task list page testing', () => {
 
 		cy.get('[data-testid="main"]').should('contain', 'Hello, world!');
 	});
+
+	it('Marking the task as complete', () => {
+		cy.get('[data-testid="markComplete"]').click();
+		cy.get('[data-testid="main"]').should('contain', 'Yes');
+	});
 });
