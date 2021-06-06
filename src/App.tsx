@@ -34,7 +34,7 @@ function App() {
 			<BrowserRouter>
 				<div className={classes.root}>
 					<Drawer />
-					<main className={classes.content}>
+					<main className={classes.content} data-testid="main">
 						<Toolbar />
 						<Switch>
 							<Route path="/" exact>

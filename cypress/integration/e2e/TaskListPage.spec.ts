@@ -10,9 +10,6 @@ describe('Task list page testing', () => {
 	it('The page should contain info about lack of the tasks', () => {
 		cy.get('[data-testid="taskslist"]').click();
 
-		cy.should('contain', 'There are no tasks yet').should(
-			'contain',
-			'[data-testid="createTaskForm"]',
-		);
+		cy.get('[data-testid="main"]').should('contain', 'There are no tasks yet');
 	});
 });
