@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store';
 import { actions as taskActions } from '../store/taskSlice';
 
@@ -55,6 +56,9 @@ const PreviewTaskPage = () => {
 			<Grid item xs={12}>
 				<Button onClick={toggleCompletion} data-testid="toggleCompletion">
 					Mark as {task.done && 'in'}complete
+				</Button>
+				<Button component={Link} to={`/list/${task.id}/edit`}>
+					Edit
 				</Button>
 			</Grid>
 		</Grid>
