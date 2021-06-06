@@ -10,6 +10,12 @@ const taskSlice = createSlice({
 		createTask: (state, action: PayloadAction<Task>) => {
 			state.push(action.payload);
 		},
+		toggleComplete: (state, action: PayloadAction<string>) => {
+			const task = state.find((task) => task.id === action.payload);
+			if (task) {
+				task.done = !task.done;
+			}
+		},
 	},
 });
 

@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import Head from './components/Head';
+import PreviewTaskPage from './pages/PreviewTaskPage';
 import TaskListPage from './pages/TaskListPage';
 import WelcomePage from './pages/WelcomePage';
 
@@ -40,8 +41,11 @@ function App() {
 							<Route path="/" exact>
 								<WelcomePage />
 							</Route>
-							<Route path="/list">
+							<Route path="/list" exact>
 								<TaskListPage />
+							</Route>
+							<Route path="/list/:id">
+								<PreviewTaskPage />
 							</Route>
 						</Switch>
 					</main>

@@ -8,6 +8,7 @@ import {
 	TableCell,
 	TableBody,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { useAppSelector } from '../store';
 
@@ -26,6 +27,7 @@ const TaskTable = () => {
 						<TableCell>N</TableCell>
 						<TableCell>Description</TableCell>
 						<TableCell>Done?</TableCell>
+						<TableCell>Actions</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -34,6 +36,9 @@ const TaskTable = () => {
 							<TableCell>{idx + 1}</TableCell>
 							<TableCell>{task.description}</TableCell>
 							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
+							<TableCell>
+								<Link to={`/list/${task.id}`}>Edit</Link>
+							</TableCell>
 						</TableRow>
 					))}
 				</TableBody>
