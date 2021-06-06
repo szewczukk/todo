@@ -1,4 +1,15 @@
-import { Button, Typography } from '@material-ui/core';
+import {
+	Button,
+	Grid,
+	Paper,
+	Table,
+	TableBody,
+	TableCell,
+	TableContainer,
+	TableHead,
+	TableRow,
+	Typography,
+} from '@material-ui/core';
 import React from 'react';
 import { useParams } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../store';
@@ -24,12 +35,29 @@ const PreviewTaskPage = () => {
 	}
 
 	return (
-		<>
-			<Typography paragraph>{task?.description}</Typography>
-			<Button onClick={toggleCompletion}>
-				Mark as {task.done && 'in'}complete
-			</Button>
-		</>
+		<Grid container spacing={3}>
+			<Grid item style={{ width: 450 }} xs={6}>
+				<TableContainer component={Paper}>
+					<Table>
+						<TableHead>
+							<TableRow>
+								<TableCell>Description</TableCell>
+								<TableCell>Done?</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							<TableCell>{task.description}</TableCell>
+							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</Grid>
+			<Grid item xs={12}>
+				<Button onClick={toggleCompletion} data-testid="toggleCompletion">
+					Mark as {task.done && 'in'}complete
+				</Button>
+			</Grid>
+		</Grid>
 	);
 };
 

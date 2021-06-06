@@ -18,7 +18,7 @@ describe('Task list page testing', () => {
 	});
 
 	it('Marking the task as complete', () => {
-		cy.get('[data-testid="markComplete"]').click();
+		cy.get('[data-testid="toggleCompletion"]').click();
 		cy.get('[data-testid="main"]').should('contain', 'Yes');
 	});
 });
