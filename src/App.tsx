@@ -10,7 +10,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import Head from './components/Head';
-import WelcomeScreen from './pages/Welcome';
+import TaskListPage from './pages/TaskListPage';
+import WelcomePage from './pages/WelcomePage';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -33,11 +34,14 @@ function App() {
 			<BrowserRouter>
 				<div className={classes.root}>
 					<Drawer />
-					<main className={classes.content}>
+					<main className={classes.content} data-testid="main">
 						<Toolbar />
 						<Switch>
 							<Route path="/" exact>
-								<WelcomeScreen />
+								<WelcomePage />
+							</Route>
+							<Route path="/list">
+								<TaskListPage />
 							</Route>
 						</Switch>
 					</main>
