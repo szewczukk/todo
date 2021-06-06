@@ -4,9 +4,7 @@ describe('All tasks page testing', () => {
 	});
 
 	it('The navigation contains a link to all tasks page screen', () => {
-		cy.get('[data-testid="navigation"]')
-			.should('contain', '[data-testid="taskslist"]')
-			.should('contain', 'List of tasks');
+		cy.get('[data-testid="navigation"]').should('contain', 'List of tasks');
 	});
 
 	it('The page should contain info about lack of the tasks', () => {
