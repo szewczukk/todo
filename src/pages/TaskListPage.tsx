@@ -1,10 +1,10 @@
 import React from 'react';
 import CreateTaskForm from '../components/CreateTaskForm';
-import TaskList from '../components/TaskList';
+import TaskTable from '../components/TaskTable';
 
 const TaskListPage = () => (
 	<>
-		<TaskList />
+		<TaskTable />
 		<CreateTaskForm />
 	</>
 );
