@@ -1,10 +1,10 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
+import TaskList from '../components/TaskList';
 
 const TasksListPage = () => (
-	<Typography variant="h5" component="h1" data-testid="heading">
-		task list
-	</Typography>
+	<>
+		<TaskList />
+	</>
 );
 
 export default TasksListPage;
