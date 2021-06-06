@@ -1,10 +1,10 @@
 import React from 'react';
 import TaskList from '../components/TaskList';
 
-const TasksListPage = () => (
+const TaskListPage = () => (
 	<>
 		<TaskList />
 	</>
 );
 
-export default TasksListPage;
+export default TaskListPage;

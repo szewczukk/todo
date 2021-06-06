@@ -10,7 +10,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import Head from './components/Head';
-import TasksListPage from './pages/TasksListPage';
+import TaskListPage from './pages/TaskListPage';
 import WelcomePage from './pages/WelcomePage';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -41,7 +41,7 @@ function App() {
 								<WelcomePage />
 							</Route>
 							<Route path="/list">
-								<TasksListPage />
+								<TaskListPage />
 							</Route>
 						</Switch>
 					</main>

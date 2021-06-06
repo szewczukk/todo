@@ -1,4 +1,4 @@
-describe('All tasks page testing', () => {
+describe('Task list page testing', () => {
 	beforeEach(() => {
 		cy.visit('http://localhost:3000/');
 	});
