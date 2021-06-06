@@ -1,8 +1,11 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useAppDispatch } from '../store';
+import { actions as taskActions } from '../store/taskSlice';
 
 const CreateTaskForm = () => {
+	const dispatch = useAppDispatch();
 	const formik = useFormik({
 		initialValues: { description: '' },
 		validate: (values) => {
@@ -12,7 +15,7 @@ const CreateTaskForm = () => {
 		},
 		onSubmit: (values, { resetForm }) => {
 			resetForm();
-			console.log(values);
+			dispatch(taskActions.createTask({ ...values, done: false }));
 		},
 	});
 

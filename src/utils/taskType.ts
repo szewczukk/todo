@@ -1,6 +1,6 @@
 interface Task {
 	done: boolean;
-	text: string;
+	description: string;
 }
 
 export default Task;
