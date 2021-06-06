@@ -10,9 +10,11 @@ import {
 	makeStyles,
 	Toolbar,
 } from '@material-ui/core';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import { FormatListBulleted } from '@material-ui/icons';
+import { useAppSelector } from '../store';
 
 const useStyles = makeStyles(() =>
 	createStyles({
@@ -25,6 +27,7 @@ const useStyles = makeStyles(() =>
 
 const Drawer = () => {
 	const classes = useStyles();
+	const { tasks } = useAppSelector((store) => store);
 
 	return (
 		<MaterialDrawer
@@ -54,6 +57,14 @@ const Drawer = () => {
 							<ListItemText>List of tasks</ListItemText>
 						</ListItem>
 					</Link>
+					{tasks.map((task, idx) => (
+						<ListItem button key={task.id}>
+							<ListItemIcon>
+								<AssignmentIcon />
+							</ListItemIcon>
+							<ListItemText>Task no {idx + 1}</ListItemText>
+						</ListItem>
+					))}
 				</List>
 			</div>
 		</MaterialDrawer>

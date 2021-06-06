@@ -24,5 +24,8 @@ describe('Task list page testing', () => {
 		cy.get('[data-testid="createTaskForm"]').submit();
 
 		cy.get('[data-testid="description"]').should('have.value', '');
+
+		cy.get('[data-testid="table"]').should('contain', 'Hello, world!');
+		cy.get('[data-testid="navigation"]').should('contain', 'Task no 1');
 	});
 });

@@ -19,7 +19,7 @@ const TaskTable = () => {
 	}
 
 	return (
-		<TableContainer component={Paper}>
+		<TableContainer component={Paper} data-testid="table">
 			<Table>
 				<TableHead>
 					<TableRow>
