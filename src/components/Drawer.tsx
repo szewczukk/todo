@@ -58,12 +58,18 @@ const Drawer = () => {
 						</ListItem>
 					</Link>
 					{tasks.map((task, idx) => (
-						<ListItem button key={task.id}>
-							<ListItemIcon>
-								<AssignmentIcon />
-							</ListItemIcon>
-							<ListItemText>Task no {idx + 1}</ListItemText>
-						</ListItem>
+						<Link
+							to={`/list/${task.id}`}
+							className={classes.link}
+							key={task.id}
+						>
+							<ListItem button>
+								<ListItemIcon>
+									<AssignmentIcon />
+								</ListItemIcon>
+								<ListItemText>Task no {idx + 1}</ListItemText>
+							</ListItem>
+						</Link>
 					))}
 				</List>
 			</div>
