@@ -26,7 +26,7 @@ const EditTaskPage = () => {
 				</Typography>
 			</Grid>
 			<Grid item xs={12}>
-				<TaskForm edit={true} id={id} description={task.description} />
+				<TaskForm edit={true} {...task} />
 			</Grid>
 		</Grid>
 	);

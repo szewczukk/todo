@@ -11,10 +11,10 @@ const TaskListPage = () => {
 					List of all tasks
 				</Typography>
 			</Grid>
-			<Grid item xs={12} md={6}>
+			<Grid item xs={12}>
 				<TaskTable />
 			</Grid>
-			<Grid item xs={12} md={6}>
+			<Grid item xs={12}>
 				<TaskForm />
 			</Grid>
 		</Grid>

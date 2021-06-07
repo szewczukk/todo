@@ -46,7 +46,7 @@ const DrawerContent = () => {
 						<ListItemText>List of tasks</ListItemText>
 					</ListItem>
 				</Link>
-				{tasks.map((task, idx) => (
+				{tasks.map((task) => (
 					<Link to={`/list/${task.id}`} className={classes.link} key={task.id}>
 						<ListItem button>
 							<ListItemIcon>
@@ -58,7 +58,7 @@ const DrawerContent = () => {
 									}
 								/>
 							</ListItemIcon>
-							<ListItemText>Task no {idx + 1}</ListItemText>
+							<ListItemText>{task.name}</ListItemText>
 						</ListItem>
 					</Link>
 				))}

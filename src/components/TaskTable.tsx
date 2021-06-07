@@ -26,7 +26,9 @@ const TaskTable = () => {
 				<TableHead>
 					<TableRow>
 						<TableCell>N</TableCell>
+						<TableCell>Name</TableCell>
 						<TableCell>Description</TableCell>
+						<TableCell>Date of creation</TableCell>
 						<TableCell>Done?</TableCell>
 						<TableCell>Actions</TableCell>
 					</TableRow>
@@ -35,7 +37,9 @@ const TaskTable = () => {
 					{tasks.map((task, idx) => (
 						<TableRow key={task.id}>
 							<TableCell>{idx + 1}</TableCell>
+							<TableCell>{task.name}</TableCell>
 							<TableCell>{task.description}</TableCell>
+							<TableCell>{new Date(task.timestamp).getDate()}</TableCell>
 							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
 							<TableCell>
 								<Button component={Link} to={`/list/${task.id}`}>

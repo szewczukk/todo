@@ -47,13 +47,17 @@ const PreviewTaskPage = () => {
 					<Table>
 						<TableHead>
 							<TableRow>
+								<TableCell>Name</TableCell>
 								<TableCell>Description</TableCell>
+								<TableCell>Date of creation</TableCell>
 								<TableCell>Done?</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							<TableRow>
+								<TableCell>{task.name}</TableCell>
 								<TableCell>{task.description}</TableCell>
+								<TableCell>{new Date(task.timestamp).getDate()}</TableCell>
 								<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
 							</TableRow>
 						</TableBody>
