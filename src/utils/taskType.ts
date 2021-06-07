@@ -1,7 +1,9 @@
 interface Task {
 	id: string;
+	name: string;
+	description?: string;
 	done: boolean;
-	description: string;
+	timestamp: number;
 }
 
 export default Task;

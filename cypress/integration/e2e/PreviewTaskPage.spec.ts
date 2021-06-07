@@ -5,16 +5,19 @@ describe('Task list page testing', () => {
 
 	it('The page should render a table with the info about the task', () => {
 		cy.get('[data-testid="navigation"]').contains('List of tasks').click();
-		cy.get('[data-testid="description"]').type('Hello, world!');
+		cy.get('[data-testid="name"]').type('hello');
+		cy.get('[data-testid="description"]').type('world');
 		cy.get('[data-testid="taskForm"]').submit();
 
 		cy.get('[data-testid="main"]')
-			.contains('Hello, world!')
+			.contains('hello')
 			.parent()
 			.contains('Preview')
 			.click();
 
-		cy.get('[data-testid="main"]').should('contain', 'Hello, world!');
+		cy.get('[data-testid="main"]')
+			.should('contain', 'hello')
+			.and('contain', 'world');
 	});
 
 	it('Marking the task as complete', () => {

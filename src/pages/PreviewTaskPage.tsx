@@ -42,18 +42,24 @@ const PreviewTaskPage = () => {
 					Preview of the selected task
 				</Typography>
 			</Grid>
-			<Grid item style={{ width: 450 }} xs={6}>
+			<Grid item xs={12} md={6}>
 				<TableContainer component={Paper}>
 					<Table>
 						<TableHead>
 							<TableRow>
+								<TableCell>Name</TableCell>
 								<TableCell>Description</TableCell>
+								<TableCell>Date of creation</TableCell>
 								<TableCell>Done?</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							<TableRow>
+								<TableCell>{task.name}</TableCell>
 								<TableCell>{task.description}</TableCell>
+								<TableCell>
+									{new Date(task.timestamp).toLocaleString()}
+								</TableCell>
 								<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
 							</TableRow>
 						</TableBody>

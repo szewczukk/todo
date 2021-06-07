@@ -16,16 +16,14 @@ describe('Task list page testing', () => {
 	it('The page should contain form and it should perform well', () => {
 		cy.get('[data-testid="navigation"]').contains('List of tasks').click();
 
-		cy.get('[data-testid="taskForm"]')
-			.should('contain', 'Create the task')
-			.should('contain', 'Task description');
-
-		cy.get('[data-testid="description"]').type('Hello, world!');
+		cy.get('[data-testid="name"]').type('hello');
+		cy.get('[data-testid="description"]').type('world');
 		cy.get('[data-testid="taskForm"]').submit();
 
-		cy.get('[data-testid="description"]').should('have.value', '');
+		cy.get('[data-testid="table"]')
+			.should('contain', 'hello')
+			.and('contain', 'world');
 
-		cy.get('[data-testid="table"]').should('contain', 'Hello, world!');
-		cy.get('[data-testid="navigation"]').should('contain', 'Task no 1');
+		cy.get('[data-testid="navigation"]').should('contain', 'hello');
 	});
 });
