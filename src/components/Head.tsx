@@ -11,6 +11,11 @@ const Head = () => (
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 		/>
+		<title>Todo App</title>
+		<meta
+			name="description"
+			content="A simple todo app created on the purposes of a recrutation"
+		/>
 	</Helmet>
 );
 
