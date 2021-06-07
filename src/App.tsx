@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import Head from './components/Head';
+import NotFoundPage from './pages/404Page';
 import EditTaskPage from './pages/EditTaskPage';
 import PreviewTaskPage from './pages/PreviewTaskPage';
 import TaskListPage from './pages/TaskListPage';
@@ -50,6 +51,9 @@ function App() {
 							</Route>
 							<Route path="/list/:id/edit" exact>
 								<EditTaskPage />
+							</Route>
+							<Route path="*">
+								<NotFoundPage />
 							</Route>
 						</Switch>
 					</main>
