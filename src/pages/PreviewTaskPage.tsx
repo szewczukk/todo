@@ -57,7 +57,9 @@ const PreviewTaskPage = () => {
 							<TableRow>
 								<TableCell>{task.name}</TableCell>
 								<TableCell>{task.description}</TableCell>
-								<TableCell>{new Date(task.timestamp).getDate()}</TableCell>
+								<TableCell>
+									{new Date(task.timestamp).toLocaleString()}
+								</TableCell>
 								<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
 							</TableRow>
 						</TableBody>

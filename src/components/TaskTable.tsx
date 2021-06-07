@@ -39,7 +39,7 @@ const TaskTable = () => {
 							<TableCell>{idx + 1}</TableCell>
 							<TableCell>{task.name}</TableCell>
 							<TableCell>{task.description}</TableCell>
-							<TableCell>{new Date(task.timestamp).getDate()}</TableCell>
+							<TableCell>{new Date(task.timestamp).toLocaleString()}</TableCell>
 							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
 							<TableCell>
 								<Button component={Link} to={`/list/${task.id}`}>

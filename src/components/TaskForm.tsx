@@ -1,4 +1,4 @@
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import { FormikErrors, useFormik } from 'formik';
 import React from 'react';
 import { useAppDispatch } from '../store';
@@ -51,32 +51,29 @@ const TaskForm = ({ id, name, description, edit }: Props) => {
 	});
 
 	return (
-		<>
-			<Typography paragraph>Create your task here</Typography>
-			<form onSubmit={formik.handleSubmit} data-testid="taskForm">
-				<TextField
-					label="Task name"
-					id="name"
-					name="name"
-					value={formik.values.name}
-					onChange={formik.handleChange}
-					required
-					error={!!formik.errors.name}
-					helperText={formik.errors.name}
-					data-testid="name"
-				/>
-				<TextField
-					label="Task description"
-					id="description"
-					name="description"
-					value={formik.values.description}
-					onChange={formik.handleChange}
-					data-testid="description"
-				/>
+		<form onSubmit={formik.handleSubmit} data-testid="taskForm">
+			<TextField
+				label="Task name"
+				id="name"
+				name="name"
+				value={formik.values.name}
+				onChange={formik.handleChange}
+				required
+				error={!!formik.errors.name}
+				helperText={formik.errors.name}
+				data-testid="name"
+			/>
+			<TextField
+				label="Task description"
+				id="description"
+				name="description"
+				value={formik.values.description}
+				onChange={formik.handleChange}
+				data-testid="description"
+			/>
 
-				<Button type="submit">Create the task</Button>
-			</form>
-		</>
+			<Button type="submit">Create the task</Button>
+		</form>
 	);
 };
 

@@ -15,6 +15,11 @@ const TaskListPage = () => {
 				<TaskTable />
 			</Grid>
 			<Grid item xs={12}>
+				<Typography variant="h5" component="h2">
+					Create your task here
+				</Typography>
+			</Grid>
+			<Grid item xs={12}>
 				<TaskForm />
 			</Grid>
 		</Grid>
