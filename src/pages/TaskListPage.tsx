@@ -15,7 +15,7 @@ const TaskListPage = () => {
 				<TaskTable />
 			</Grid>
 			<Grid item xs={12} md={6}>
-				<TaskForm edit={false} />
+				<TaskForm />
 			</Grid>
 		</Grid>
 	);
