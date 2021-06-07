@@ -1,4 +1,4 @@
-import { Button, TextField } from '@material-ui/core';
+import { Button, Grid, TextField } from '@material-ui/core';
 import { FormikErrors, useFormik } from 'formik';
 import React from 'react';
 import { useAppDispatch } from '../store';
@@ -52,27 +52,34 @@ const TaskForm = ({ id, name, description, edit }: Props) => {
 
 	return (
 		<form onSubmit={formik.handleSubmit} data-testid="taskForm">
-			<TextField
-				label="Task name"
-				id="name"
-				name="name"
-				value={formik.values.name}
-				onChange={formik.handleChange}
-				required
-				error={!!formik.errors.name}
-				helperText={formik.errors.name}
-				data-testid="name"
-			/>
-			<TextField
-				label="Task description"
-				id="description"
-				name="description"
-				value={formik.values.description}
-				onChange={formik.handleChange}
-				data-testid="description"
-			/>
-
-			<Button type="submit">Create the task</Button>
+			<Grid container spacing={3}>
+				<Grid item xs={6}>
+					<TextField
+						label="Task name"
+						id="name"
+						name="name"
+						value={formik.values.name}
+						onChange={formik.handleChange}
+						required
+						error={!!formik.errors.name}
+						helperText={formik.errors.name}
+						data-testid="name"
+					/>
+				</Grid>
+				<Grid item xs={6}>
+					<TextField
+						label="Task description"
+						id="description"
+						name="description"
+						value={formik.values.description}
+						onChange={formik.handleChange}
+						data-testid="description"
+					/>
+				</Grid>
+				<Grid item xs={12}>
+					<Button type="submit">Create the task</Button>
+				</Grid>
+			</Grid>
 		</form>
 	);
 };
