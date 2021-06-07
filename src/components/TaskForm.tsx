@@ -4,11 +4,19 @@ import React from 'react';
 import { useAppDispatch } from '../store';
 import { actions as taskActions } from '../store/taskSlice';
 import { v4 as uuid } from 'uuid';
+import { useHistory } from 'react-router';
 
-const CreateTaskForm = () => {
+interface Props {
+	id?: string;
+	description?: string;
+	edit: boolean;
+}
+
+const TaskForm = ({ id, description, edit }: Props) => {
+	const history = useHistory();
 	const dispatch = useAppDispatch();
 	const formik = useFormik({
-		initialValues: { description: '' },
+		initialValues: { description: description ?? '' },
 		validate: (values) => {
 			if (!values.description) {
 				return { description: 'Description cannot be empty!' };
@@ -16,14 +24,21 @@ const CreateTaskForm = () => {
 		},
 		onSubmit: (values, { resetForm }) => {
 			resetForm();
-			dispatch(taskActions.createTask({ ...values, done: false, id: uuid() }));
+			if (!edit) {
+				dispatch(
+					taskActions.createTask({ ...values, done: false, id: uuid() }),
+				);
+			} else if (id) {
+				dispatch(taskActions.editTask({ ...values, id }));
+				history.push(`/list/${id}`);
+			}
 		},
 	});
 
 	return (
 		<>
 			<Typography paragraph>Create your task here</Typography>
-			<form onSubmit={formik.handleSubmit} data-testid="createTaskForm">
+			<form onSubmit={formik.handleSubmit} data-testid="taskForm">
 				<TextField
 					label="Task description"
 					id="description"
@@ -42,4 +57,4 @@ const CreateTaskForm = () => {
 	);
 };
 
-export default CreateTaskForm;
+export default TaskForm;

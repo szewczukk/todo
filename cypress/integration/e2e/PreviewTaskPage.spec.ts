@@ -6,7 +6,7 @@ describe('Task list page testing', () => {
 	it('The page should render a table with the info about the task', () => {
 		cy.get('[data-testid="taskslist"]').click();
 		cy.get('[data-testid="description"]').type('Hello, world!');
-		cy.get('[data-testid="createTaskForm"]').submit();
+		cy.get('[data-testid="taskForm"]').submit();
 
 		cy.get('[data-testid="main"]')
 			.contains('Hello, world!')

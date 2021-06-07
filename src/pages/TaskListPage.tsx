@@ -1,6 +1,6 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import CreateTaskForm from '../components/CreateTaskForm';
+import TaskForm from '../components/TaskForm';
 import TaskTable from '../components/TaskTable';
 
 const TaskListPage = () => {
@@ -10,7 +10,7 @@ const TaskListPage = () => {
 				<TaskTable />
 			</Grid>
 			<Grid item xs={12} md={6}>
-				<CreateTaskForm />
+				<TaskForm edit={false} />
 			</Grid>
 		</Grid>
 	);
