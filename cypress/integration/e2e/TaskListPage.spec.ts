@@ -8,13 +8,13 @@ describe('Task list page testing', () => {
 	});
 
 	it('The page should contain info about lack of the tasks', () => {
-		cy.get('[data-testid="taskslist"]').click();
+		cy.get('[data-testid="navigation"]').contains('List of tasks').click();
 
 		cy.get('[data-testid="main"]').should('contain', 'There are no tasks yet');
 	});
 
 	it('The page should contain form and it should perform well', () => {
-		cy.get('[data-testid="taskslist"]').click();
+		cy.get('[data-testid="navigation"]').contains('List of tasks').click();
 
 		cy.get('[data-testid="taskForm"]')
 			.should('contain', 'Create the task')

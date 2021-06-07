@@ -36,7 +36,7 @@ const DrawerContent = () => {
 					</ListItem>
 				</Link>
 				<Divider />
-				<Link to="/list" className={classes.link} data-testid="taskslist">
+				<Link to="/list" className={classes.link}>
 					<ListItem button>
 						<ListItemIcon>
 							<FormatListBulleted
