@@ -16,6 +16,12 @@ const taskSlice = createSlice({
 				task.done = !task.done;
 			}
 		},
+		editTask: (state, action: PayloadAction<Omit<Task, 'done'>>) => {
+			const task = state.find((task) => task.id === action.payload.id);
+			if (task) {
+				task.description = action.payload.description;
+			}
+		},
 	},
 });
 
