@@ -37,6 +37,11 @@ const PreviewTaskPage = () => {
 
 	return (
 		<Grid container spacing={3}>
+			<Grid item xs={12}>
+				<Typography variant="h5" component="h2">
+					Preview of the selected task
+				</Typography>
+			</Grid>
 			<Grid item style={{ width: 450 }} xs={6}>
 				<TableContainer component={Paper}>
 					<Table>
@@ -47,8 +52,10 @@ const PreviewTaskPage = () => {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							<TableCell>{task.description}</TableCell>
-							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
+							<TableRow>
+								<TableCell>{task.description}</TableCell>
+								<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
+							</TableRow>
 						</TableBody>
 					</Table>
 				</TableContainer>

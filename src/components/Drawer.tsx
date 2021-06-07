@@ -11,7 +11,7 @@ import {
 	Toolbar,
 } from '@material-ui/core';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import HomeIcon from '@material-ui/icons/Home';
 import { FormatListBulleted } from '@material-ui/icons';
 import { useAppSelector } from '../store';
@@ -26,6 +26,7 @@ const useStyles = makeStyles(() =>
 );
 
 const Drawer = () => {
+	const { pathname } = useLocation();
 	const classes = useStyles();
 	const { tasks } = useAppSelector((store) => store);
 
@@ -43,7 +44,7 @@ const Drawer = () => {
 					<Link to="/" className={classes.link}>
 						<ListItem button>
 							<ListItemIcon>
-								<HomeIcon />
+								<HomeIcon color={pathname === '/' ? 'primary' : 'inherit'} />
 							</ListItemIcon>
 							<ListItemText>Welcome</ListItemText>
 						</ListItem>
@@ -52,7 +53,9 @@ const Drawer = () => {
 					<Link to="/list" className={classes.link} data-testid="taskslist">
 						<ListItem button>
 							<ListItemIcon>
-								<FormatListBulleted />
+								<FormatListBulleted
+									color={pathname === '/list' ? 'primary' : 'inherit'}
+								/>
 							</ListItemIcon>
 							<ListItemText>List of tasks</ListItemText>
 						</ListItem>
@@ -65,7 +68,13 @@ const Drawer = () => {
 						>
 							<ListItem button>
 								<ListItemIcon>
-									<AssignmentIcon />
+									<AssignmentIcon
+										color={
+											pathname.split('/').includes(task.id)
+												? 'primary'
+												: 'inherit'
+										}
+									/>
 								</ListItemIcon>
 								<ListItemText>Task no {idx + 1}</ListItemText>
 							</ListItem>
