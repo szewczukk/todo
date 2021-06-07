@@ -52,8 +52,10 @@ const PreviewTaskPage = () => {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							<TableCell>{task.description}</TableCell>
-							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
+							<TableRow>
+								<TableCell>{task.description}</TableCell>
+								<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
+							</TableRow>
 						</TableBody>
 					</Table>
 				</TableContainer>
