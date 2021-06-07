@@ -20,7 +20,7 @@ const AppBar = () => {
 	return (
 		<MaterialAppBar position="fixed" className={classes.appBar}>
 			<Toolbar>
-				<Typography variant="h6" noWrap>
+				<Typography variant="h6" component="h1" noWrap>
 					Todo app
 				</Typography>
 			</Toolbar>

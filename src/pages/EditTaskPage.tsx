@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import TaskForm from '../components/TaskForm';
@@ -19,10 +19,16 @@ const EditTaskPage = () => {
 	}
 
 	return (
-		<>
-			<Typography paragraph>Edit your task here</Typography>
-			<TaskForm edit={true} id={id} description={task.description} />
-		</>
+		<Grid container spacing={3}>
+			<Grid item xs={12}>
+				<Typography variant="h5" component="h2">
+					Edit your task here
+				</Typography>
+			</Grid>
+			<Grid item xs={12}>
+				<TaskForm edit={true} id={id} description={task.description} />
+			</Grid>
+		</Grid>
 	);
 };
 
