@@ -1,26 +1,66 @@
+import {
+	createStyles,
+	CssBaseline,
+	makeStyles,
+	Theme,
+	Toolbar,
+} from '@material-ui/core';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AppBar from './components/AppBar';
+import Drawer from './components/Drawer';
+import Head from './components/Head';
+import NotFoundPage from './pages/404Page';
+import EditTaskPage from './pages/EditTaskPage';
+import PreviewTaskPage from './pages/PreviewTaskPage';
+import TaskListPage from './pages/TaskListPage';
+import WelcomePage from './pages/WelcomePage';
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		root: { display: 'flex' },
+		content: {
+			flexGrow: 1,
+			padding: theme.spacing(3),
+		},
+	}),
+);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const classes = useStyles();
+
+	return (
+		<>
+			<CssBaseline />
+			<AppBar />
+			<Head />
+			<BrowserRouter>
+				<div className={classes.root}>
+					<Drawer />
+					<main className={classes.content} data-testid="main">
+						<Toolbar />
+						<Switch>
+							<Route path="/" exact>
+								<WelcomePage />
+							</Route>
+							<Route path="/list" exact>
+								<TaskListPage />
+							</Route>
+							<Route path="/list/:id" exact>
+								<PreviewTaskPage />
+							</Route>
+							<Route path="/list/:id/edit" exact>
+								<EditTaskPage />
+							</Route>
+							<Route path="*">
+								<NotFoundPage />
+							</Route>
+						</Switch>
+					</main>
+				</div>
+			</BrowserRouter>
+		</>
+	);
 }
 
 export default App;
