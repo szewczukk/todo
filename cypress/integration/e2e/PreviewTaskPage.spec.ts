@@ -1,4 +1,4 @@
-describe('Task list page testing', () => {
+describe('Preview page testing', () => {
 	before(() => {
 		cy.visit('http://localhost:3000/');
 	});
@@ -11,7 +11,7 @@ describe('Task list page testing', () => {
 		cy.get('[data-testid="main"]')
 			.contains('Hello, world!')
 			.parent()
-			.contains('Edit')
+			.contains('Preview')
 			.click();
 
 		cy.get('[data-testid="main"]').should('contain', 'Hello, world!');
