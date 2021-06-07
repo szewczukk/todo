@@ -7,6 +7,7 @@ import {
 	Typography,
 	TableCell,
 	TableBody,
+	Button,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import React from 'react';
@@ -37,7 +38,12 @@ const TaskTable = () => {
 							<TableCell>{task.description}</TableCell>
 							<TableCell>{task.done ? 'Yes' : 'No'}</TableCell>
 							<TableCell>
-								<Link to={`/list/${task.id}`}>Edit</Link>
+								<Button component={Link} to={`/list/${task.id}`}>
+									Preview
+								</Button>
+								<Button component={Link} to={`/list/${task.id}/edit`}>
+									Edit
+								</Button>
 							</TableCell>
 						</TableRow>
 					))}

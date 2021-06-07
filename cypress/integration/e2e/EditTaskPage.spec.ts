@@ -1,4 +1,4 @@
-describe('Task list page testing', () => {
+describe('Preview page testing', () => {
 	before(() => {
 		cy.visit('http://localhost:3000/');
 	});
@@ -11,14 +11,12 @@ describe('Task list page testing', () => {
 		cy.get('[data-testid="main"]')
 			.contains('Hello, world!')
 			.parent()
-			.contains('Preview')
+			.contains('Edit')
 			.click();
 
-		cy.get('[data-testid="main"]').should('contain', 'Hello, world!');
-	});
+		cy.get('[data-testid="description"]').type('{selectall}Goodbye, world!');
+		cy.get('[data-testid="taskForm"]').submit();
 
-	it('Marking the task as complete', () => {
-		cy.get('[data-testid="toggleCompletion"]').click();
-		cy.get('[data-testid="main"]').should('contain', 'Yes');
+		cy.get('[data-testid="main"]').should('contain', 'Goodbye, world!');
 	});
 });
